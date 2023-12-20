@@ -1,0 +1,17 @@
+https://answers.microsoft.com/pt-br/windows/forum/all/problemas-ap%C3%B3s-executar-comando-para-corrigir/3b2e6286-8003-4ff3-b932-2663fca92402
+
+Problemas após executar comando para corrigir erro no menu iniciar do Windows 10. Apps padrão não abrem.
+
+
+
+copie codigo abaixo e cole no Windows rt (Admin)
+
+Get-AppXPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+
+
+Finalizado o procedimento acima copie e cole o comando abaixo e pressione enter:
+
+
+Get-appxpackage -all *shellexperience* -packagetype bundle |% {add-appxpackage -register -disabledevelopmentmode ($_.installlocation + “C:\Program Files\WindowsApps\Microsoft.Windows.ShellExperienceHost_1.0.0.2_neutral_ShellExperienceHost.laac0539cc_8wekyb3d8bbwe\AppxManifest.xml”)}
+
+https://answers.microsoft.com/pt-br/windows/forum/all/microsoft-store-e-seus-aplicativos-n%C3%A3o-abrem/0b4c086f-116d-4417-a971-d87a804d2004
